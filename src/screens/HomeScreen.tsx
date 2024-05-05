@@ -8,7 +8,7 @@ const HomeScreen = () => {
 
   return (
     <ImageBackground
-      source={require('../assets/background.jpeg')} // Substitua 'background.jpg' pelo nome do seu arquivo de imagem
+      source={require('../assets/background_home.jpeg')} // Substitua 'background.jpg' pelo nome do seu arquivo de imagem
       style={styles.background}>
       <View style={styles.container}>
         <Text style={styles.title}>Bem-vindo ao Astrologicamente</Text>
