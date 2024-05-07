@@ -1,20 +1,32 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Image } from 'react-native';
+
 
 const HomeScreen = () => {
-  // Simulando dados do usuário (substitua isso pela lógica real)
-  const userSign = 'Áries';
-  const userHoroscope = 'Persistência e determinação são suas maiores armas hoje, Áries. Mantenha o foco em seus objetivos e não se deixe desanimar por obstáculos. Sua energia e entusiasmo contagiam os outros, então aproveite para inspirar e motivar aqueles ao seu redor. Confie em sua intuição e siga em frente com confiança!';
+  // Função para navegar para a próxima tela ao pressionar o botão Confirmar
+  const navigateToNextScreen = () => {
+    // Implemente a navegação para a próxima tela aqui
+  };
 
   return (
     <ImageBackground
-      source={require('../assets/background_home.jpeg')} // Substitua 'background.jpg' pelo nome do seu arquivo de imagem
+      source={require('../assets/background_home.jpeg')}
       style={styles.background}>
       <View style={styles.container}>
-        <Text style={styles.title}>Bem-vindo ao Astrologicamente</Text>
-        <Text style={styles.subtitle}>Seu horóscopo de hoje:</Text>
-        <Text style={styles.sign}>Signo: {userSign}</Text>
-        <Text style={styles.horoscope}>{userHoroscope}</Text>
+        {/* LogoView */}
+        <View style={styles.logoContainer}>
+          <Image source={require('../assets/logo.png')} style={styles.logo} />
+        </View>
+        {/* BlockButton */}
+        <TouchableOpacity style={styles.circularButton} onPress={navigateToNextScreen}>
+          <Text style={styles.buttonText}>Confirmar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.circularButton} onPress={navigateToNextScreen}>
+          <Text style={styles.buttonText}>Confirmar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.circularButton} onPress={navigateToNextScreen}>
+          <Text style={styles.buttonText}>Confirmar</Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
@@ -28,32 +40,42 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  logo: {
+    width: 150, // Ajuste o tamanho conforme necessário
+    height: 150, // Ajuste o tamanho conforme necessário
+    resizeMode: 'contain',
+  },
+  logoContainer: {
+    marginBottom: 30,
+    // Estilo do LogoView
+  },
+  inputContainer: {
+    marginBottom: 20,
+    // Estilo do InputView
+  },
+  input: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 10,
+    width: '100%',
+    // Outros estilos para o campo de entrada
+  },
+  circularButton: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    backgroundColor: '#F58634', // Customize the button color
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adicionando um overlay escuro para melhor legibilidade do texto
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    color: 'white',
-  },
-  subtitle: {
-    fontSize: 18,
-    marginBottom: 5,
-    color: 'white',
-  },
-  sign: {
+  buttonText: {
+    color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
-    marginBottom: 5,
-    color: 'white',
-  },
-  horoscope: {
-    fontSize: 16,
-    textAlign: 'center',
-    color: 'white',
   },
 });
 

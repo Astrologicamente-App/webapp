@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image } from 'react-native';
+import {View, Text, StyleSheet, ImageBackground, Image} from 'react-native';
 
 const LoginScreen = () => {
   return (
@@ -7,10 +7,7 @@ const LoginScreen = () => {
       source={require('../assets/background_login.png')}
       style={styles.background}>
       <View style={styles.container}>
-        <Image
-          source={require('../assets/logo.png')}
-          style={styles.logo}
-        />
+        <Image source={require('../assets/logo.png')} style={styles.logo} />
         <Text style={styles.title}>Faça o Login</Text>
       </View>
     </ImageBackground>
