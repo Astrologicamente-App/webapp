@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const ProfileScreen = () => {
+const HoroscopeScreen = () => {
     return(
     <ImageBackground
       source={require('../assets/background.png')}
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ProfileScreen;
+export default HoroscopeScreen;

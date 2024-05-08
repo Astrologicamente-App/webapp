@@ -1,32 +1,47 @@
 import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, Image } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
+
   // Função para navegar para a próxima tela ao pressionar o botão Confirmar
-  const navigateToNextScreen = () => {
-    // Implemente a navegação para a próxima tela aqui
+  const navigateToMensagemDoDiaScreen = () => {
+    navigation.navigate('MessageOfTheDay'); // Nome da tela definido no StackNavigator
+  };
+
+  const navigateToHoroscopoScreen = () => {
+    navigation.navigate('Horoscopo'); // Nome da tela definido no StackNavigator
+  };
+
+  const navigateToProfileScreen = () => {
+    navigation.navigate('Profile'); // Nome da tela definido no StackNavigator
   };
 
   return (
     <ImageBackground
-      source={require('../assets/background_home.jpeg')}
+      source={require('../assets/background.png')}
       style={styles.background}>
       <View style={styles.container}>
         {/* LogoView */}
         <View style={styles.logoContainer}>
           <Image source={require('../assets/logo.png')} style={styles.logo} />
         </View>
-        {/* BlockButton */}
-        <TouchableOpacity style={styles.circularButton} onPress={navigateToNextScreen}>
-          <Text style={styles.buttonText}>Confirmar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.circularButton} onPress={navigateToNextScreen}>
-          <Text style={styles.buttonText}>Confirmar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.circularButton} onPress={navigateToNextScreen}>
-          <Text style={styles.buttonText}>Confirmar</Text>
-        </TouchableOpacity>
+        {/* Buttons */}
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.circularButton} onPress={navigateToMensagemDoDiaScreen}>
+            <Image source={require('../assets/buttons/mensagemdodiaButton.png')}></Image>
+            <Text style={[styles.buttonText, { marginTop: -20 }]}>Mensagem</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.circularButton} onPress={navigateToHoroscopoScreen}>
+            <Image source={require('../assets/buttons/horoscopoButton.png')}></Image>
+            <Text style={[styles.buttonText, { marginTop: -20 }]}>Horóscopo</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.circularButton} onPress={navigateToProfileScreen}>
+            <Image source={require('../assets/buttons/porfileButton.png')}></Image>
+            <Text style={[styles.buttonText, { marginTop: -20 }]}>Perfil</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ImageBackground>
   );
@@ -41,7 +56,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end', // Alinha os elementos ao final do contêiner
     padding: 20,
   },
   logo: {
@@ -51,31 +66,25 @@ const styles = StyleSheet.create({
   },
   logoContainer: {
     marginBottom: 30,
-    // Estilo do LogoView
   },
-  inputContainer: {
-    marginBottom: 20,
-    // Estilo do InputView
-  },
-  input: {
-    backgroundColor: 'white',
-    borderRadius: 10,
-    padding: 10,
-    width: '100%',
-    // Outros estilos para o campo de entrada
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center', // Centraliza os botões horizontalmente
+    marginBottom: 30, // Adiciona margem inferior para afastar os botões do final da tela
   },
   circularButton: {
     width: 100,
     height: 100,
     borderRadius: 50,
-    backgroundColor: '#F58634', // Customize the button color
     justifyContent: 'center',
     alignItems: 'center',
+    marginHorizontal: 20,
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
