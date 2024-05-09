@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-end', // Alinha os elementos ao final do contêiner
-    padding: 20,
+    marginLeft: 'auto',
   },
   logo: {
     width: 150, // Ajuste o tamanho conforme necessário
