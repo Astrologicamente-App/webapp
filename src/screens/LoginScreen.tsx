@@ -2,19 +2,22 @@ import React from 'react';
 import { View, Text, StyleSheet, ImageBackground, Image, TextInput, TouchableOpacity } from 'react-native';
 import NavigationStack from '../navigation/NavigationStack';
 import HomeScreen from '../screens/HomeScreen';
+import { useNavigation } from '@react-navigation/native';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
+  const navigation = useNavigation();
+
   const navigateToAppScreen = () => {
     // Implemente a navegação para a próxima tela aqui
-    navigation.navigate('HomeScreen'); // Substitua 'AppScreen' pelo nome da próxima tela
+    navigation.navigate('Home'); // Substitua 'AppScreen' pelo nome da próxima tela
   };
   const navigateToRegisterScreen = () => {
     // Implemente a navegação para a próxima tela aqui
-    navigation.navigate('RegisterScreen'); // Substitua 'RegisterScreen' pelo nome da tela de registro
+    navigation.navigate('Register'); // Substitua 'RegisterScreen' pelo nome da tela de registro
   };
   return (
     <ImageBackground
-      source={require('../assets/background_login.png')}
+      source={require('../assets/background.png')}
       style={styles.background}>
       <View style={styles.container}>
         <Image source={require('../assets/logo.png')} style={styles.logo} />
